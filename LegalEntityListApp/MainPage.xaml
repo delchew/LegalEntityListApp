@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LegalEntityListApp.MainPage"
+             Style="{StaticResource contentPageStyle}"
+             Title="Клиенты">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Priority="0" IconImageSource="add_button.png" />
+    </ContentPage.ToolbarItems>
+    <AbsoluteLayout>
+        <CollectionView x:Name="companiesList"
+                        VerticalScrollBarVisibility="Never"
+                        ItemsSource="{Binding Companies}"
+                        Margin="20, 20, 20, 20"
+                        AbsoluteLayout.LayoutFlags="All"
+                        AbsoluteLayout.LayoutBounds="0, 1, 1, .88"
+                        SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout VerticalItemSpacing="20"
+                                 Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Style="{StaticResource frameStyle}">
+                        <Grid Padding="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Path=ShortName}"
+                                   Style="{StaticResource labelMain}"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   Grid.ColumnSpan="3"/>
+                            <ImageButton Source="more_vertical.png"
+                                         BackgroundColor="Transparent"
+                                         Scale="0.4"
+                                         HorizontalOptions="End"
+                                         VerticalOptions="Center"
+                                         Grid.Column="2"
+                                         Grid.Row="0"/>
+                            <StackLayout Grid.Row="1" Grid.Column="0">
+                                <Label Text="ИНН"
+                                       Style="{StaticResource labelSecondary}"/>
+                                <Label Text="{Binding Path=Tin}"
+                                       Style="{StaticResource labelMain}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="1" Grid.Column="1">
+                                <Label Text="КПП"
+                                       Style="{StaticResource labelSecondary}"/>
+                                <Label Text="{Binding Path=Rrc}"
+                                       Style="{StaticResource labelMain}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="1" Grid.Column="2">
+                                <Label Text="ОГРН"
+                                       Style="{StaticResource labelSecondary}"/>
+                                <Label Text="{Binding Path=Psrn}"
+                                       Style="{StaticResource labelMain}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+                                <Label Text="Адрес"
+                                       Style="{StaticResource labelSecondary}"/>
+                                <Label Text="{Binding Path=Address}"
+                                       Style="{StaticResource labelMain}"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Frame BorderColor="#D3D7DA"
+               BackgroundColor="#EBEDF1"
+               CornerRadius="40"
+               Padding="0, 0, 0, 0"
+               HasShadow="True"
+               Margin="20, 0, 20, 0"
+               AbsoluteLayout.LayoutFlags="All"
+               AbsoluteLayout.LayoutBounds="0, 0, 1, .10">
+            <Grid Padding="0" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <SearchBar x:Name="search"
+                           Placeholder="Поиск"
+                           Grid.Row="0" Grid.Column="0"
+                           VerticalOptions="Center"
+                           HorizontalOptions="CenterAndExpand"/>
+                <ImageButton x:Name="filterButton"
+                             Source="filter_button.png"
+                             BackgroundColor="Transparent"
+                             Scale=".9"
+                             Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+        </Frame>
+        <ImageButton x:Name="mapButton"
+                     Source="show_on_map.png"
+                     BackgroundColor="Transparent"
+                     AbsoluteLayout.LayoutFlags="All"
+                     AbsoluteLayout.LayoutBounds="1, .85, 0.15, 0.15"
+                     Clicked="MapButton_Clicked"/>
+    </AbsoluteLayout>
+</ContentPage>

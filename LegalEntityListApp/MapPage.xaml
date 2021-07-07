@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="LegalEntityListApp.MapPage"
+    Title="Карта">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Label TextColor="Blue"
+               FontSize="Large"
+               Text="Здесь должна быть карта,&#10;а пока пусто))"/>
+    </StackLayout>
+</ContentPage>
