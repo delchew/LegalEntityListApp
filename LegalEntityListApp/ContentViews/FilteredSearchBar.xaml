@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="LegalEntityListApp.ContentViews.FilteredSearchBar">
+    <Grid Padding="0" Margin="0" RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <SearchBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <ImageButton x:Name="filterButton"
+                     Source="filter_button"
+                     BackgroundColor="Transparent"
+                     Scale=".5"
+                     VerticalOptions="Center"
+                     HorizontalOptions="End"
+                     Margin="0" Padding="0"
+                     Grid.Row="0" Grid.Column="1"/>
+    </Grid>
+</ContentView>
