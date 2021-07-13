@@ -31,5 +31,13 @@
 	<string>LegalEntityListApp</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We would like to show you a map</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We would like to show you a map</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We would like to show you a map</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We would like to show you a map</string>
 </dict>
 </plist>

@@ -113,6 +113,18 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\show_on_map.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\show_on_map.imageset\show_on_map.png" />
+    <ImageAsset Include="Assets.xcassets\more_vertical.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\more_vertical.imageset\more_vertical.png" />
+    <ImageAsset Include="Assets.xcassets\map_label.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\map_label.imageset\map_label.png" />
+    <ImageAsset Include="Assets.xcassets\filter_button.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\filter_button.imageset\filter_button.png" />
+    <ImageAsset Include="Assets.xcassets\add_button.imageset\add_button.png" />
+    <ImageAsset Include="Assets.xcassets\add_button.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\back_arrow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\back_arrow.imageset\back_arrow.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -128,6 +140,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Forms.Maps">
+      <Version>5.0.0.2012</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -135,5 +150,14 @@
       <Project>{CFFE6BD7-55A8-4E5C-A220-0FCF2C9B4926}</Project>
       <Name>LegalEntityListApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\Images.imageset\" />
+    <Folder Include="Assets.xcassets\show_on_map.imageset\" />
+    <Folder Include="Assets.xcassets\more_vertical.imageset\" />
+    <Folder Include="Assets.xcassets\map_label.imageset\" />
+    <Folder Include="Assets.xcassets\filter_button.imageset\" />
+    <Folder Include="Assets.xcassets\add_button.imageset\" />
+    <Folder Include="Assets.xcassets\back_arrow.imageset\" />
   </ItemGroup>
 </Project>

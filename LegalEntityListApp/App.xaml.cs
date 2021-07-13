@@ -1,20 +1,26 @@
-﻿using System;
+﻿using LegalEntityListApp.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace LegalEntityListApp
 {
     public partial class App : Application
     {
+        private readonly LegalEntityListViewModel _viewModel = new LegalEntityListViewModel();
+
         public App()
         {
             InitializeComponent();
+            var navigationPage = new NavigationPage(new MainPage(_viewModel))
+            {
+                BarTextColor = Color.FromHex("#25262E")
+            };
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = navigationPage;
         }
 
         protected override void OnStart()
         {
+            _viewModel.GetCompanies();
         }
 
         protected override void OnSleep()

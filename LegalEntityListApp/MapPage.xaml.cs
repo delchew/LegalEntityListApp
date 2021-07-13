@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Xamarin.Forms;
 
@@ -10,6 +9,11 @@ namespace LegalEntityListApp
         public MapPage()
         {
             InitializeComponent();
+        }
+
+        private async void BackToMainPageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

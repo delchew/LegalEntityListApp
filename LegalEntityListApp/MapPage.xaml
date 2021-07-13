@@ -2,11 +2,20 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
     x:Class="LegalEntityListApp.MapPage"
-    Title="Карта">
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label TextColor="Blue"
-               FontSize="Large"
-               Text="Здесь должна быть карта,&#10;а пока пусто))"/>
-    </StackLayout>
+    NavigationPage.HasNavigationBar="False">
+    <AbsoluteLayout>
+        <maps:Map IsShowingUser="True"
+                  MapType="Street"
+                  HasZoomEnabled="True"
+                  AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+        <ImageButton x:Name="backToMainPageButton"
+                     Source="back_arrow"
+                     BackgroundColor="Transparent"
+                     AbsoluteLayout.LayoutFlags="All"
+                     AbsoluteLayout.LayoutBounds="0.025, .04, .05, .05"
+                     Clicked="BackToMainPageButton_Clicked"/>
+    </AbsoluteLayout>
 </ContentPage>
