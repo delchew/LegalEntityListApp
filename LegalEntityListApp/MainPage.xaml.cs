@@ -30,7 +30,7 @@ namespace LegalEntityListApp
 
         void AddButton_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Adding", "Adding Test", "cancel");
+            DisplayAlert("Adding", "Adding Test", "OK");
         }
     }
 }

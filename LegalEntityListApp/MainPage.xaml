@@ -62,42 +62,42 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
                                 <Label Text="{Binding Path=ShortName}"
-                                   Style="{StaticResource labelMain}"
-                                   HorizontalOptions="Start"
-                                   VerticalOptions="Center"
-                                   Grid.Column="0"
-                                   Grid.Row="0"
-                                   Grid.ColumnSpan="3"/>
+                                       Style="{StaticResource labelMain}"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       Grid.ColumnSpan="3"/>
                                 <ImageButton Source="more_vertical"
-                                         BackgroundColor="Transparent"
-                                         Scale="0.4"
-                                         HorizontalOptions="End"
-                                         VerticalOptions="Center"
-                                         Grid.Column="2"
-                                         Grid.Row="0"/>
+                                             BackgroundColor="Transparent"
+                                             Scale="0.4"
+                                             HorizontalOptions="End"
+                                             VerticalOptions="Center"
+                                             Grid.Column="2"
+                                             Grid.Row="0"/>
                                 <StackLayout Grid.Row="1" Grid.Column="0">
                                     <Label Text="ИНН"
-                                       Style="{StaticResource labelSecondary}"/>
+                                           Style="{StaticResource labelSecondary}"/>
                                     <Label Text="{Binding Path=Tin}"
-                                       Style="{StaticResource labelMain}"/>
+                                           Style="{StaticResource labelMain}"/>
                                 </StackLayout>
                                 <StackLayout Grid.Row="1" Grid.Column="1">
                                     <Label Text="КПП"
-                                       Style="{StaticResource labelSecondary}"/>
+                                           Style="{StaticResource labelSecondary}"/>
                                     <Label Text="{Binding Path=Rrc}"
-                                       Style="{StaticResource labelMain}"/>
+                                           Style="{StaticResource labelMain}"/>
                                 </StackLayout>
                                 <StackLayout Grid.Row="1" Grid.Column="2">
                                     <Label Text="ОГРН"
-                                       Style="{StaticResource labelSecondary}"/>
+                                           Style="{StaticResource labelSecondary}"/>
                                     <Label Text="{Binding Path=Psrn}"
-                                       Style="{StaticResource labelMain}"/>
+                                           Style="{StaticResource labelMain}"/>
                                 </StackLayout>
                                 <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
                                     <Label Text="Адрес"
-                                       Style="{StaticResource labelSecondary}"/>
+                                           Style="{StaticResource labelSecondary}"/>
                                     <Label Text="{Binding Path=Address}"
-                                       Style="{StaticResource labelMain}"/>
+                                           Style="{StaticResource labelMain}"/>
                                 </StackLayout>
                             </Grid>
                         </Frame>
