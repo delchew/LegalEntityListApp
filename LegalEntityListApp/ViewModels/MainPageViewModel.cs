@@ -76,6 +76,17 @@ namespace LegalEntityListApp.ViewModels
             {
                 var company = new LegalEntityViewModel();
 
+                if (double.TryParse(item.SelectToken(@"location.latitude")?.ToString(), out double latitude) &&
+                    double.TryParse(item.SelectToken(@"location.longitude")?.ToString(), out double longitude))
+                {
+                    company.Location = new Location
+                    {
+                        Latitude = latitude,
+                        Longitude = longitude
+                    };
+                }
+                else continue;
+
                 if (int.TryParse(item.SelectToken(@"id")?.ToString(), out int id))
                 {
                     company.Id = id;
@@ -89,16 +100,6 @@ namespace LegalEntityListApp.ViewModels
                 if (double.TryParse(item.SelectToken(@"authorized_capital")?.ToString(), out double capital))
                 {
                     company.AuthorizedCapital = capital;
-                }
-
-                if (double.TryParse(item.SelectToken(@"location.latitude")?.ToString(), out double latitude) &&
-                    double.TryParse(item.SelectToken(@"location.longitude")?.ToString(), out double longitude))
-                {
-                    company.Location = new Location
-                    {
-                        Latitude = latitude,
-                        Longitude = longitude
-                    };
                 }
 
                 company.ShortName = item.SelectToken(@"$.short_name")?.ToString();

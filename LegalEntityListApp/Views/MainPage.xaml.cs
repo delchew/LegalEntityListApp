@@ -25,7 +25,7 @@ namespace LegalEntityListApp.Views
 
         private async void MapButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MapPage());
+            await Navigation.PushAsync(new MapPage(new MapPageViewModel(_viewModel)));
         }
 
         void AddButton_Clicked(object sender, EventArgs e)

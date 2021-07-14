@@ -6,9 +6,11 @@
     x:Class="LegalEntityListApp.Views.MapPage"
     NavigationPage.HasNavigationBar="False">
     <AbsoluteLayout>
-        <maps:Map IsShowingUser="True"
+        <maps:Map x:Name="map"
+                  IsShowingUser="True"
                   MapType="Street"
                   HasZoomEnabled="True"
+                  MoveToLastRegionOnLayoutChange="True"
                   AbsoluteLayout.LayoutFlags="All"
                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
         <ImageButton x:Name="backToMainPageButton"
