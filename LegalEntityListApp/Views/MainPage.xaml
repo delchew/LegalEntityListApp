@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:LegalEntityListApp.ContentViews"
-             x:Class="LegalEntityListApp.MainPage"
+             x:Class="LegalEntityListApp.Views.MainPage"
              Style="{StaticResource contentPageStyle}"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Padding>

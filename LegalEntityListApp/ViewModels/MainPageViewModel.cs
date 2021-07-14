@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace LegalEntityListApp.ViewModels
 {
-    public class LegalEntityListViewModel
+    public class MainPageViewModel
     {
         private readonly StringBuilder _requestStringBuilder = new StringBuilder();
         private readonly string _baseRequestString = @"https://beta.marketing-logic.ru/mlead/api/v0/legals?page=";
@@ -20,7 +20,7 @@ namespace LegalEntityListApp.ViewModels
 
         public ObservableCollection<LegalEntityViewModel> Companies { get; private set; }
 
-        public LegalEntityListViewModel()
+        public MainPageViewModel()
         {
             Companies = new ObservableCollection<LegalEntityViewModel>();
         }

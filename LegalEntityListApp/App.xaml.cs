@@ -1,11 +1,12 @@
 ﻿using LegalEntityListApp.ViewModels;
+using LegalEntityListApp.Views;
 using Xamarin.Forms;
 
 namespace LegalEntityListApp
 {
     public partial class App : Application
     {
-        private readonly LegalEntityListViewModel _viewModel = new LegalEntityListViewModel();
+        private readonly MainPageViewModel _viewModel = new MainPageViewModel();
 
         public App()
         {

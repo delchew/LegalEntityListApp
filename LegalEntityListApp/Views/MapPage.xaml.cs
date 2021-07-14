@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-namespace LegalEntityListApp
+namespace LegalEntityListApp.Views
 {
     public partial class MapPage : ContentPage
     {

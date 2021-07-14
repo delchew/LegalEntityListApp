@@ -2,17 +2,17 @@
 using LegalEntityListApp.ViewModels;
 using Xamarin.Forms;
 
-namespace LegalEntityListApp
+namespace LegalEntityListApp.Views
 {
     public partial class MainPage : ContentPage
     {
-        private readonly LegalEntityListViewModel _legalEntityList;
+        private readonly MainPageViewModel _viewModel;
 
-        public MainPage(LegalEntityListViewModel legalEntityList)
+        public MainPage(MainPageViewModel viewModel)
         {
             InitializeComponent();
-            _legalEntityList = legalEntityList;
-            BindingContext = _legalEntityList;
+            _viewModel = viewModel;
+            BindingContext = _viewModel;
 
             companiesList.RemainingItemsThreshold = 5;
             companiesList.RemainingItemsThresholdReached += CompaniesList_RemainingItemsThresholdReached;
@@ -20,7 +20,7 @@ namespace LegalEntityListApp
 
         private void CompaniesList_RemainingItemsThresholdReached(object sender, EventArgs e)
         {
-            _legalEntityList.GetCompanies();
+            _viewModel.GetCompanies();
         }
 
         private async void MapButton_Clicked(object sender, EventArgs e)
