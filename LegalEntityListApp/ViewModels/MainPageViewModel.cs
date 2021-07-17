@@ -1,33 +1,28 @@
 ﻿using System;
-using System.Net;
 using System.Collections.ObjectModel;
-using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using LegalEntityListApp.Models;
-using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+using LegalEntityListApp.DataProviders;
+using Xamarin.Forms;
 
 namespace LegalEntityListApp.ViewModels
 {
     public class MainPageViewModel
     {
-        private readonly StringBuilder _requestStringBuilder = new StringBuilder();
-        private readonly string _baseRequestString = @"https://beta.marketing-logic.ru/mlead/api/v0/legals?page=";
-        private readonly string _accessToken = @"&access-token=zCdJIdkcU5rGTG0lsngcrDGfsmEAV4Kz";
+        private readonly IContentProvider _contentProvider;
         private int _currentPageNumber = 0;
-
         public ObservableCollection<LegalEntityViewModel> Companies { get; private set; }
 
         public MainPageViewModel()
         {
             Companies = new ObservableCollection<LegalEntityViewModel>();
+            _contentProvider = DependencyService.Get<IContentProvider>();
         }
 
         public async void GetCompanies()
         {
-            var jsonString = await GetContent(++_currentPageNumber);
+            var jsonString = await _contentProvider.GetContentAsync(++_currentPageNumber);
             if (!string.IsNullOrEmpty(jsonString))
             {
                 var companies = ParseContent(jsonString);
@@ -36,37 +31,6 @@ namespace LegalEntityListApp.ViewModels
                     Companies.Add(company);
                 }
             }
-        }
-
-        private async Task<string> GetContent(int pageNumber)
-        {
-            var requestString = _requestStringBuilder.Clear()
-                                                     .Append(_baseRequestString)
-                                                     .Append(pageNumber)
-                                                     .Append(_accessToken)
-                                                     .ToString();
-            var request = new HttpRequestMessage
-            {
-                RequestUri = new Uri(requestString),
-                Method = HttpMethod.Get
-            };
-            request.Headers.Add("VersionCode", "177");
-            var client = new HttpClient();
-            var response = await client.SendAsync(request);
-            response.EnsureSuccessStatusCode();
-
-            if (response.StatusCode != HttpStatusCode.OK)
-                return string.Empty;
-
-            var headers = response.Headers;
-            if (!headers.TryGetValues("X-Pagination-Total-Count", out var values))
-                return string.Empty;
-
-            var pagesCount = int.Parse(values?.First());
-            if (_currentPageNumber > pagesCount)
-                return string.Empty;
-
-            return await response.Content.ReadAsStringAsync();
         }
 
         private IEnumerable<LegalEntityViewModel> ParseContent(string jsonContent)

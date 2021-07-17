@@ -27,6 +27,7 @@
     <None Remove="Views\" />
     <None Remove="Extensions\" />
     <None Remove="Comparers\" />
+    <None Remove="DataProviders\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -36,6 +37,7 @@
     <Folder Include="Views\" />
     <Folder Include="Extensions\" />
     <Folder Include="Comparers\" />
+    <Folder Include="DataProviders\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Roboto-Regular.ttf">
