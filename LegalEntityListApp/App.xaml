@@ -9,11 +9,11 @@
             </Style>
             <Style x:Key="frameStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="White"/>
-                <Setter Property="BorderColor" Value="White"/>
+                <!--<Setter Property="BorderColor" Value="White"/>-->
                 <Setter Property="HasShadow" Value="False"/>
                 <Setter Property="CornerRadius" Value="20"/>
                 <Setter Property="Margin" Value="0, 0, 0, 0"/>
-                <Setter Property="Padding" Value="20, 5, 20, 20"/>
+                <Setter Property="Padding" Value="0, 5, 0, 20"/>
             </Style>
             <Style x:Key="labelMain" TargetType="Label">
                 <Setter Property="TextColor" Value="#25262E"/>

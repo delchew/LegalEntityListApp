@@ -11,7 +11,7 @@ namespace LegalEntityListApp.ViewModels
     {
         private readonly IContentProvider _contentProvider;
         private int _currentPageNumber = 0;
-        public ObservableCollection<LegalEntityViewModel> Companies { get; private set; }
+        public ObservableCollection<LegalEntityViewModel> Companies{ get; private set; }
 
         public MainPageViewModel()
         {
