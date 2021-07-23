@@ -38,9 +38,12 @@ namespace LegalEntityListApp.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            RequestedOrientation = ScreenOrientation.Portrait;
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
+
             LoadApplication(new App());
         }
 

@@ -61,11 +61,15 @@
     <PackageReference Include="Xamarin.Forms.Maps">
       <Version>5.0.0.2083</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>2.3.0.759</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomRenderers\TransparentEntryRendererAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -115,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
+    <Folder Include="CustomRenderers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LegalEntityListApp\LegalEntityListApp.csproj">

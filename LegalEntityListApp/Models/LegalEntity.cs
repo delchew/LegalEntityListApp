@@ -19,7 +19,7 @@ namespace LegalEntityListApp.Models
 
         public string Rrc { get; set; }
 
-        public double AuthorizedCapital { get; set; }
+        public double? AuthorizedCapital { get; set; }
 
         public string LegalForm { get; set; }
 

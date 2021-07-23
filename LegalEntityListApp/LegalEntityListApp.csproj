@@ -15,6 +15,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2083" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -28,6 +29,8 @@
     <None Remove="Extensions\" />
     <None Remove="Comparers\" />
     <None Remove="DataProviders\" />
+    <None Remove="Xamarin.Forms.PancakeView" />
+    <None Remove="CustomControls\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -38,6 +41,7 @@
     <Folder Include="Extensions\" />
     <Folder Include="Comparers\" />
     <Folder Include="DataProviders\" />
+    <Folder Include="CustomControls\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Roboto-Regular.ttf">

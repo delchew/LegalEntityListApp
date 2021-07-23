@@ -2,23 +2,33 @@
 <ContentView
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="LegalEntityListApp.ContentViews.FilteredSearchBar">
-    <Grid Padding="0" Margin="0" RowSpacing="0" ColumnSpacing="0">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <SearchBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-        <ImageButton x:Name="filterButton"
-                     Source="filter_button"
-                     BackgroundColor="Transparent"
-                     Scale=".5"
-                     VerticalOptions="Center"
-                     HorizontalOptions="End"
-                     Margin="0" Padding="0"
-                     Grid.Row="0" Grid.Column="1"/>
-    </Grid>
+    xmlns:local="clr-namespace:LegalEntityListApp.CustomControls"
+    x:Class="LegalEntityListApp.ContentViews.FilteredSearchBar"
+    x:Name="root">
+    <Frame BackgroundColor="#EBEDF1"
+           BorderColor="#D3D7DA"
+           Margin="0, 20" Padding="0"
+           CornerRadius="20"
+           HeightRequest="60"
+           HasShadow="False">
+        <StackLayout Orientation="Horizontal"
+                     Margin="20, 0, 0, 0" Padding="0">
+            <local:TransparentEntry Grid.Row="0" Grid.Column="0"
+                                    Margin="0"
+                                    BindingContext="{x:Reference root}"
+                                    Placeholder="{Binding Placeholder}"
+                                    TextColor="#25262E"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand"/>
+            <ImageButton Source="filter_button"
+                         BackgroundColor="Transparent"
+                         Scale=".9"
+                         VerticalOptions="Center"
+                         HorizontalOptions="EndAndExpand"
+                         Margin="0" Padding="0"
+                         Grid.Row="0" Grid.Column="1"
+                         Clicked="FilterButton_Clicked"/>
+        </StackLayout>
+    </Frame>
+
 </ContentView>

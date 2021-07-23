@@ -6,16 +6,16 @@ namespace LegalEntityListApp.ViewModels
 {
     public class MapPageViewModel
     {
-        private MainPageViewModel _mainPageViewModel { get; }
+        private IList<LegalEntityViewModel> _companies;
 
-        public MapPageViewModel(MainPageViewModel mainPageViewModel)
+        public MapPageViewModel(IList<LegalEntityViewModel> companies)
         {
-            _mainPageViewModel = mainPageViewModel;
+            _companies = companies;
         }
 
         public IEnumerable<Pin> GetPins()
         {
-            foreach (var item in _mainPageViewModel.Companies)
+            foreach (var item in _companies)
             {
                 var pin = new Pin
                 {

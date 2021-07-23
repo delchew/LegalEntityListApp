@@ -16,7 +16,6 @@ namespace LegalEntityListApp
             {
                 BarTextColor = Color.FromHex("#25262E")
             };
-
             MainPage = navigationPage;
         }
 

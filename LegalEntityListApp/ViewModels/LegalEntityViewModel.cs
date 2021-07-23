@@ -125,7 +125,7 @@ namespace LegalEntityListApp.ViewModels
         [JsonProperty("authorized_capital", NullValueHandling = NullValueHandling.Ignore)]
         public double AuthorizedCapital
         {
-            get { return _legalEntity.AuthorizedCapital; }
+            get { return _legalEntity.AuthorizedCapital.Value; }
             set
             {
                 if (_legalEntity.AuthorizedCapital != value)

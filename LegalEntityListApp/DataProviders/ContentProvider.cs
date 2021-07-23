@@ -13,16 +13,12 @@ namespace LegalEntityListApp.DataProviders
     public class ContentProvider : IContentProvider
     {
         private readonly StringBuilder _requestStringBuilder = new StringBuilder();
-        private readonly string _baseRequestString = @"https://beta.marketing-logic.ru/mlead/api/v0/legals?page=";
-        private readonly string _accessToken = @"&access-token=zCdJIdkcU5rGTG0lsngcrDGfsmEAV4Kz";
+        private readonly string _baseRequestString = @"https://beta.marketing-logic.ru/mlead/api/v0/legals";
+        private readonly (string name, string value) _accessToken = (@"access-token", @"zCdJIdkcU5rGTG0lsngcrDGfsmEAV4Kz");
 
         public async Task<string> GetContentAsync(int pageNumber)
         {
-            var requestString = _requestStringBuilder.Clear()
-                                         .Append(_baseRequestString)
-                                         .Append(pageNumber)
-                                         .Append(_accessToken)
-                                         .ToString();
+            var requestString = GenerateRequestString(_accessToken, ("page", pageNumber.ToString()));
             var request = new HttpRequestMessage
             {
                 RequestUri = new Uri(requestString),
@@ -45,6 +41,20 @@ namespace LegalEntityListApp.DataProviders
                 return string.Empty;
 
             return await response.Content.ReadAsStringAsync();
+        }
+
+        private string GenerateRequestString(params (string name, string value) [] requestParams)
+        {
+            _requestStringBuilder.Clear().Append(_baseRequestString);
+            if(requestParams != null && requestParams.Length > 0)
+            {
+                for (int i = 0; i < requestParams.Length; i++)
+                {
+                    _requestStringBuilder.Append(i == 0 ? "?" : "&");
+                    _requestStringBuilder.Append($"{requestParams[i].name}={requestParams[i].value}");
+                }
+            }
+            return _requestStringBuilder.ToString();
         }
     }
 }
