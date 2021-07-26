@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:LegalEntityListApp.ContentViews"
-             xmlns:cake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="LegalEntityListApp.Views.MainPage"
              Style="{StaticResource contentPageStyle}"
              NavigationPage.HasNavigationBar="False">
@@ -20,7 +19,6 @@
             Margin="0" Padding="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="45"/>
-                <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
@@ -80,31 +78,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <cake:PancakeView
-                x:Name="filterPancake"
-                Padding="0" Margin="0"
-                BackgroundColor="White"
-                CornerRadius="50, 50, 0, 0"
-                VerticalOptions="EndAndExpand"
-                HeightRequest="0"
-                Grid.Row="3">
-                <ScrollView
-                    VerticalScrollBarVisibility="Never"
-                    Margin="20, 0">
-                    <StackLayout>
-                        <BoxView
-                            Color="#EBEDF1"
-                            HeightRequest="5"
-                            Margin="100, 10, 100, 20"
-                            CornerRadius="2"/>
-                        <Button
-                            Text="Применить"
-                            TextColor="#FFFFFF"
-                            BackgroundColor="#00BEF0"
-                            CornerRadius="10"/>
-                    </StackLayout>
-                </ScrollView>
-            </cake:PancakeView>
         </Grid>
         <ImageButton
             x:Name="mapButton"

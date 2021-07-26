@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:local="clr-namespace:LegalEntityListApp.CustomControls"
+    x:Class="LegalEntityListApp.Views.FiltersPopupView"
+    HasSystemPadding="True"
+    Padding="10">
+    <pages:PopupPage.Animation>
+        <animations:MoveAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Bottom"
+            PositionOut="Bottom"/>
+    </pages:PopupPage.Animation>
+    <Frame
+        Padding="0" Margin="0"
+        BackgroundColor="#FFFFFF"
+        CornerRadius="20"
+        VerticalOptions="End">
+        <StackLayout>
+            <BoxView
+                Color="#EBEDF1"
+                HeightRequest="5"
+                Margin="100, 5, 100, 10"
+                CornerRadius="2"/>
+            <ScrollView
+                VerticalScrollBarVisibility="Never">
+                <StackLayout
+                Margin="20, 0, 20, 0">
+                <local:RoundedEntry
+                    x:Name="titleFilterEntry"
+                    Style="{StaticResource entryMain}"
+                    Placeholder="Наименование"
+                    Margin="0, 0, 0, 10"/>
+                <local:RoundedEntry
+                    x:Name="psrnFilterEntry"
+                    Style="{StaticResource entryMain}"
+                    Placeholder="ОГРН"
+                    Margin="0, 0, 0, 10"/>
+                <local:RoundedEntry
+                    x:Name="tinFilterEntry"
+                    Style="{StaticResource entryMain}"
+                    Placeholder="ИНН"
+                    Margin="0, 0, 0, 10"/>
+                <local:RoundedEntry
+                    x:Name="rrcFilterEntry"
+                    Style="{StaticResource entryMain}"
+                    Placeholder="КПП"
+                    Margin="0, 0, 0, 10"/>
+                <Label
+                    Text="Численность персонала"
+                    Style="{StaticResource labelSecondary}"/>
+                <StackLayout Orientation="Horizontal">
+                <local:RoundedEntry
+                    x:Name="minHeadCountFilterEntry"
+                    Style="{StaticResource entryMain}"
+                    Placeholder="0"
+                    Margin="0, 0, 0, 10"
+                    HorizontalOptions="CenterAndExpand"/>
+                <Label
+                    Text="-"
+                    Style="{StaticResource labelSecondary}"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"/>
+                <local:RoundedEntry
+                    x:Name="maxHeadCountFilterEntry"
+                    Style="{StaticResource entryMain}"
+                    Placeholder="1000"
+                    Margin="0, 0, 0, 10"
+                    HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            </ScrollView>
+            <Button
+                Text="Применить"
+                TextColor="#FFFFFF"
+                BackgroundColor="#00BEF0"
+                CornerRadius="20"
+                Margin="20, 0, 20, 10"/>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

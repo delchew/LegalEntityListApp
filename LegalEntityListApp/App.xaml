@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LegalEntityListApp.App">
+             x:Class="LegalEntityListApp.App"
+             xmlns:local="clr-namespace:LegalEntityListApp.CustomControls">
     <Application.Resources>
         <ResourceDictionary>
             <Style x:Key="contentPageStyle" TargetType="ContentPage">
@@ -9,7 +10,6 @@
             </Style>
             <Style x:Key="frameStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="White"/>
-                <!--<Setter Property="BorderColor" Value="White"/>-->
                 <Setter Property="HasShadow" Value="False"/>
                 <Setter Property="CornerRadius" Value="20"/>
                 <Setter Property="Margin" Value="0, 0, 0, 0"/>
@@ -24,6 +24,15 @@
                 <Setter Property="TextColor" Value="#9EA2A7"/>
                 <Setter Property="FontFamily" Value="Roboto"/>
                 <Setter Property="FontSize" Value="Small"/>
+            </Style>
+            <Style x:Key="entryMain" TargetType="local:RoundedEntry">
+                <Setter Property="BackgroundColor" Value="#EBEDF1"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BorderWidth" Value="1"/>
+                <Setter Property="BorderColor" Value="#D3D7DA"/>
+                <Setter Property="TextColor" Value="#25262E"/>
+                <Setter Property="PlaceholderColor" Value="#8E99A6"/>
+                <Setter Property="FontFamily" Value="Roboto"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

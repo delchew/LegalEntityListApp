@@ -8,6 +8,7 @@ using System.Windows.Input;
 using LegalEntityListApp.Views;
 using System;
 using Xamarin.Essentials;
+using Rg.Plugins.Popup.Services;
 
 namespace LegalEntityListApp.ViewModels
 {
@@ -50,33 +51,14 @@ namespace LegalEntityListApp.ViewModels
             return companies.Where(x => x.Location.Latitude != null && x.Location.Longitude != null);
         }
 
-        private void OpenMap()
+        private async void OpenMap()
         {
-            Navigation.PushAsync(new MapPage(new MapPageViewModel(Companies)));
+            await Navigation.PushAsync(new MapPage(new MapPageViewModel(Companies)));
         }
 
-        private void OpenFilter()
+        private async void OpenFilter()
         {
-            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
-            Action<double> callback = input => FilterView.HeightRequest = input;
-            var rate = 32u;
-            var length = 500u;
-            double startHeight, endHeight;
-            Easing easing;
-            if (FilterView.Height == 0)
-            {
-                startHeight = 0d;
-                endHeight = mainDisplayInfo.Height;
-                easing = Easing.CubicIn;
-            }
-            else
-            {
-                startHeight = mainDisplayInfo.Height;
-                endHeight = 0d;
-                easing = Easing.SinOut;
-            }
-            FilterView.Animate("animateFilterModalView", callback, startHeight, endHeight, rate, length, easing);
+            await PopupNavigation.Instance.PushAsync(new FiltersPopupView());
         }
-
     }
 }

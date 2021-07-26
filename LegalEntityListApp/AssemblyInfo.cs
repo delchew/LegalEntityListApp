@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Rg.Plugins.Popup.Services;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]

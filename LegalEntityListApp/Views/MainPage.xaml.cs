@@ -10,7 +10,7 @@ namespace LegalEntityListApp.Views
             InitializeComponent();
 
             viewModel.Navigation = Navigation;
-            viewModel.FilterView = filterPancake;
+            //viewModel.FilterView = filterPancake;
             BindingContext = viewModel;
         }
     }

@@ -43,6 +43,7 @@ namespace LegalEntityListApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
+            Rg.Plugins.Popup.Popup.Init(this);
 
             LoadApplication(new App());
         }
@@ -66,6 +67,11 @@ namespace LegalEntityListApp.Droid
             }
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnBackPressed()
+        {
+            Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed);
         }
     }
 }
