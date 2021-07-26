@@ -15,6 +15,7 @@ namespace LegalEntityListApp.iOS.CustomRenderers
             if(e.OldElement == null)
             {
                 Control.Layer.BackgroundColor = Color.Transparent.ToCGColor();
+                Control.BorderStyle = UIKit.UITextBorderStyle.None;
             }
         }
     }

@@ -12,7 +12,7 @@
                 <Setter Property="BackgroundColor" Value="White"/>
                 <Setter Property="HasShadow" Value="False"/>
                 <Setter Property="CornerRadius" Value="20"/>
-                <Setter Property="Margin" Value="0, 0, 0, 0"/>
+                <Setter Property="Margin" Value="0"/>
                 <Setter Property="Padding" Value="0, 5, 0, 20"/>
             </Style>
             <Style x:Key="labelMain" TargetType="Label">
@@ -26,13 +26,40 @@
                 <Setter Property="FontSize" Value="Small"/>
             </Style>
             <Style x:Key="entryMain" TargetType="local:RoundedEntry">
-                <Setter Property="BackgroundColor" Value="#EBEDF1"/>
-                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform
+                            x:TypeArguments="Color"
+                            iOS="#EBEDF1"
+                            Android="Transparent"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="CornerRadius">
+                    <Setter.Value>
+                        <OnPlatform
+                            x:TypeArguments="x:Single"
+                            iOS="20"
+                            Android="40"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="BorderWidth" Value="1"/>
                 <Setter Property="BorderColor" Value="#D3D7DA"/>
                 <Setter Property="TextColor" Value="#25262E"/>
+                <Setter Property="FontSize" Value="Default"/>
                 <Setter Property="PlaceholderColor" Value="#8E99A6"/>
                 <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="Margin" Value="0, 0, 0, 10"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style x:Key="mainButton" TargetType="Button">
+                <Setter Property="TextColor" Value="#FFFFFF"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="BackgroundColor" Value="#00BEF0"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="Margin" Value="20, 0, 20, 10"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

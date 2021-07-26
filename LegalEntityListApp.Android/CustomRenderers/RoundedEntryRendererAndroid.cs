@@ -21,11 +21,12 @@ namespace LegalEntityListApp.Droid.CustomRenderers
                 var roundedEntry = (RoundedEntry)e.NewElement;
 
                 var gradientDrawable = new GradientDrawable();
+                gradientDrawable.SetShape(ShapeType.Rectangle);
+                //Have to just hardcode this color property, because in Android we get the rectangle over the rounded oval of borders
+                gradientDrawable.SetColor(Color.FromHex("#EBEDF1").ToAndroid());
                 gradientDrawable.SetCornerRadius(roundedEntry.CornerRadius);
                 gradientDrawable.SetStroke((int)roundedEntry.BorderWidth, roundedEntry.BorderColor.ToAndroid());
-                gradientDrawable.SetColor(roundedEntry.BackgroundColor.ToAndroid());
                 Control.SetBackground(gradientDrawable);
-
             }
         }
     }

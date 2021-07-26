@@ -17,7 +17,7 @@
                      Source="back_arrow"
                      BackgroundColor="Transparent"
                      AbsoluteLayout.LayoutFlags="All"
-                     AbsoluteLayout.LayoutBounds="0.025, .04, .05, .05"
+                     AbsoluteLayout.LayoutBounds=".025, .025, .05, .05"
                      Clicked="BackToMainPageButton_Clicked"/>
     </AbsoluteLayout>
 </ContentPage>

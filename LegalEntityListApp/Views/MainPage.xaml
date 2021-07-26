@@ -13,15 +13,16 @@
         </OnPlatform>
     </ContentPage.Padding>
     <AbsoluteLayout>
-        <Grid
+        <StackLayout
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-            Margin="0" Padding="0">
-            <Grid.RowDefinitions>
+            Margin="0" Padding="0"
+            Spacing="0">
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
+            </Grid.RowDefinitions>-->
             <Grid
                 Margin="20, 0"
                 Padding="0, 20, 0, 0"
@@ -41,7 +42,7 @@
                 <ImageButton
                     x:Name="addButton"
                     Source="add_button"
-                    Scale=".8"
+                    Scale=".6"
                     BackgroundColor="Transparent"
                     HorizontalOptions="End"
                     VerticalOptions="CenterAndExpand"
@@ -49,7 +50,7 @@
                     Grid.Column="1"/>
             </Grid>
             <local:FilteredSearchBar
-                Grid.Row="1" Margin="20, 0"
+                Grid.Row="1" Margin="20, 0" Padding="0"
                 Placeholder="Поиск"
                 FilterCommand="{Binding OpenFilterCommand}"/>
             <CollectionView
@@ -78,7 +79,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </Grid>
+        </StackLayout>
         <ImageButton
             x:Name="mapButton"
             Source="show_on_map"

@@ -27,7 +27,7 @@
             <BoxView
                 Color="#EBEDF1"
                 HeightRequest="5"
-                Margin="100, 5, 100, 10"
+                Margin="110, 10, 110, 10"
                 CornerRadius="2"/>
             <ScrollView
                 VerticalScrollBarVisibility="Never">
@@ -37,22 +37,22 @@
                     x:Name="titleFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="Наименование"
-                    Margin="0, 0, 0, 10"/>
+                    CursorPosition="10"/>
                 <local:RoundedEntry
                     x:Name="psrnFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="ОГРН"
-                    Margin="0, 0, 0, 10"/>
+                    Keyboard="Numeric"/>
                 <local:RoundedEntry
                     x:Name="tinFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="ИНН"
-                    Margin="0, 0, 0, 10"/>
+                    Keyboard="Numeric"/>
                 <local:RoundedEntry
                     x:Name="rrcFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="КПП"
-                    Margin="0, 0, 0, 10"/>
+                    Keyboard="Numeric"/>
                 <Label
                     Text="Численность персонала"
                     Style="{StaticResource labelSecondary}"/>
@@ -61,28 +61,23 @@
                     x:Name="minHeadCountFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="0"
-                    Margin="0, 0, 0, 10"
-                    HorizontalOptions="CenterAndExpand"/>
+                    Keyboard="Numeric"/>
                 <Label
                     Text="-"
                     Style="{StaticResource labelSecondary}"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
                 <local:RoundedEntry
                     x:Name="maxHeadCountFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="1000"
-                    Margin="0, 0, 0, 10"
-                    HorizontalOptions="CenterAndExpand"/>
+                    Keyboard="Numeric"/>
                 </StackLayout>
             </StackLayout>
             </ScrollView>
             <Button
                 Text="Применить"
-                TextColor="#FFFFFF"
-                BackgroundColor="#00BEF0"
-                CornerRadius="20"
-                Margin="20, 0, 20, 10"/>
+                Style="{StaticResource mainButton}"/>
         </StackLayout>
     </Frame>
 </pages:PopupPage>
