@@ -32,6 +32,7 @@
     <None Remove="Xamarin.Forms.PancakeView" />
     <None Remove="CustomControls\" />
     <None Remove="Rg.Plugins.Popup" />
+    <None Remove="Converter\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -41,8 +42,9 @@
     <Folder Include="Views\" />
     <Folder Include="Extensions\" />
     <Folder Include="Comparers\" />
-    <Folder Include="DataProviders\" />
+    <Folder Include="DataWorkers\" />
     <Folder Include="CustomControls\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Roboto-Regular.ttf">

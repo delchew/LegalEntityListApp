@@ -37,22 +37,26 @@
                     x:Name="titleFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="Наименование"
-                    CursorPosition="10"/>
+                    Keyboard="Default"
+                    Text="{Binding Path=Title, Mode=OneWayToSource}"/>
                 <local:RoundedEntry
                     x:Name="psrnFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="ОГРН"
-                    Keyboard="Numeric"/>
+                    Keyboard="Numeric"
+                    Text="{Binding Path=Psrn, Mode=OneWayToSource}"/>
                 <local:RoundedEntry
                     x:Name="tinFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="ИНН"
-                    Keyboard="Numeric"/>
+                    Keyboard="Numeric"
+                    Text="{Binding Path=Tin, Mode=OneWayToSource}"/>
                 <local:RoundedEntry
                     x:Name="rrcFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="КПП"
-                    Keyboard="Numeric"/>
+                    Keyboard="Numeric"
+                    Text="{Binding Path=Rrc, Mode=OneWayToSource}"/>
                 <Label
                     Text="Численность персонала"
                     Style="{StaticResource labelSecondary}"/>
@@ -60,8 +64,11 @@
                 <local:RoundedEntry
                     x:Name="minHeadCountFilterEntry"
                     Style="{StaticResource entryMain}"
-                    Placeholder="0"
-                    Keyboard="Numeric"/>
+                    Placeholder="1"
+                    Keyboard="Numeric"
+                    Text="{Binding Path=MinHeadCount,
+                           Mode=OneWayToSource,
+                           Converter={StaticResource nullableIntToSrtingConverter}}"/>
                 <Label
                     Text="-"
                     Style="{StaticResource labelSecondary}"
@@ -71,13 +78,17 @@
                     x:Name="maxHeadCountFilterEntry"
                     Style="{StaticResource entryMain}"
                     Placeholder="1000"
-                    Keyboard="Numeric"/>
+                    Keyboard="Numeric"
+                    Text="{Binding Path=MaxHeadCount,
+                           Mode=OneWayToSource,
+                           Converter={StaticResource nullableIntToSrtingConverter}}"/>
                 </StackLayout>
             </StackLayout>
             </ScrollView>
             <Button
                 Text="Применить"
-                Style="{StaticResource mainButton}"/>
+                Style="{StaticResource mainButton}"
+                Command="{Binding ApplyFilterCommand}"/>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

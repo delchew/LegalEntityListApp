@@ -10,25 +10,20 @@ namespace LegalEntityListApp.Views
 {
     public partial class MapPage : ContentPage
     {
-        private MapPageViewModel _viewModel;
         private const int EdgeSpaceInMetres = 100;
 
         public MapPage(MapPageViewModel viewModel)
         {
             InitializeComponent();
-            _viewModel = viewModel;
-            var pins = _viewModel.GetPins();
+            BindingContext = viewModel;
+            viewModel.Navigation = Navigation;
+            var pins = viewModel.GetPins();
             foreach(var pin in pins)
             {
                 map.Pins.Add(pin);
             }
 
             map.MoveToRegion(GetPinsMapSpan(pins));
-        }
-
-        private async void BackToMainPageButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
         }
 
         private MapSpan GetPinsMapSpan(IEnumerable<Pin> pins)

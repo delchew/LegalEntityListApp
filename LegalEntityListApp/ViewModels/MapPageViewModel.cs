@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
 using LegalEntityListApp.Extensions;
+using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
 namespace LegalEntityListApp.ViewModels
@@ -8,9 +10,13 @@ namespace LegalEntityListApp.ViewModels
     {
         private IList<LegalEntityViewModel> _companies;
 
+        public INavigation Navigation { get; set; }
+        public ICommand BackToMainPageCommand { get; private set; }
+
         public MapPageViewModel(IList<LegalEntityViewModel> companies)
         {
             _companies = companies;
+            BackToMainPageCommand = new Command(async () => await Navigation.PopAsync());
         }
 
         public IEnumerable<Pin> GetPins()

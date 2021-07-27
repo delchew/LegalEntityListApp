@@ -2,9 +2,11 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LegalEntityListApp.App"
-             xmlns:local="clr-namespace:LegalEntityListApp.CustomControls">
+             xmlns:customControls="clr-namespace:LegalEntityListApp.CustomControls"
+             xmlns:converters="clr-namespace:LegalEntityListApp.Converters">
     <Application.Resources>
         <ResourceDictionary>
+            <converters:NullableIntToStringConverter x:Key="nullableIntToSrtingConverter"/>
             <Style x:Key="contentPageStyle" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="#F3F2F7"/>
             </Style>
@@ -25,7 +27,7 @@
                 <Setter Property="FontFamily" Value="Roboto"/>
                 <Setter Property="FontSize" Value="Small"/>
             </Style>
-            <Style x:Key="entryMain" TargetType="local:RoundedEntry">
+            <Style x:Key="entryMain" TargetType="customControls:RoundedEntry">
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform
