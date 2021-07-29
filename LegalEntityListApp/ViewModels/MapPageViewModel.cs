@@ -33,6 +33,5 @@ namespace LegalEntityListApp.ViewModels
                 yield return pin;
             }
         }
-
     }
 }

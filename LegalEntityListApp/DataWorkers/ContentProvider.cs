@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using LegalEntityListApp.DataWorkers;
 using LegalEntityListApp.Models;
@@ -13,19 +12,24 @@ namespace LegalEntityListApp.DataWorkers
 {
     public class ContentProvider : IContentProvider
     {
-        private IRequestStringBuilder requestStringBuilder = new SimpleFilterRequestBuilder();
+        private readonly IRequestStringBuilder _requestStringBuilder = new SimpleFilterRequestBuilder();
+        private readonly HttpClient _httpClient;
+
+        public ContentProvider()
+        {
+            _httpClient = new HttpClient();
+        }
 
         public async Task<string> GetContentAsync(int pageNumber, EntityFilter filter = null)
         {
-            var requestString = requestStringBuilder.GetRequestString(pageNumber, filter);
+            var requestString = _requestStringBuilder.GetRequestString(pageNumber, filter);
             var request = new HttpRequestMessage
             {
                 RequestUri = new Uri(requestString),
                 Method = HttpMethod.Get
             };
             request.Headers.Add("VersionCode", "177");
-            var client = new HttpClient();
-            var response = await client.SendAsync(request);
+            var response = await _httpClient.SendAsync(request);
             response.EnsureSuccessStatusCode();
 
             if (response.StatusCode != HttpStatusCode.OK)

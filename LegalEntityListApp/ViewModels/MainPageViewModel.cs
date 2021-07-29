@@ -15,6 +15,8 @@ namespace LegalEntityListApp.ViewModels
     {
         private readonly IContentProvider _contentProvider;
         private int _currentPageNumber = 0;
+        private bool _companiesListIsUpdating = false;
+        private readonly EntityFilter _entityFilter;
         private FiltersPopupView _filtersPopupView;
         public FiltersPopupView FiltersPopupView
         {
@@ -22,7 +24,7 @@ namespace LegalEntityListApp.ViewModels
             {
                 if (_filtersPopupView == null)
                 {
-                    var viewModel = new FiltersPopupViewModel(GetFilteredCompanies);
+                    var viewModel = new FiltersPopupViewModel(UpdateCompanies, _entityFilter);
                     _filtersPopupView = new FiltersPopupView(viewModel);
                 }
                 return _filtersPopupView;
@@ -37,30 +39,20 @@ namespace LegalEntityListApp.ViewModels
         public MainPageViewModel()
         {
             Companies = new ObservableCollection<LegalEntityViewModel>();
+            _entityFilter = new EntityFilter();
             _contentProvider = DependencyService.Get<IContentProvider>();
+            UpdateCompanies();
             OpenMapCommand = new Command(OpenMap);
-            LoadNextEntitiesPageCommand = new Command(GetCompanies);
+            LoadNextEntitiesPageCommand = new Command(UpdateCompanies);
             OpenFilterCommand = new Command(OpenFilter);
         }
 
-        public async void GetCompanies()
+        public async void UpdateCompanies()
         {
-            var jsonString = await _contentProvider.GetContentAsync(++_currentPageNumber);
-            AddParsedCompanies(jsonString);
-        }
-
-        public async void GetFilteredCompanies(EntityFilter filter)
-        {
-            var jsonString = await _contentProvider.GetContentAsync(1, filter);
-            Companies.Clear();
-            AddParsedCompanies(jsonString);
-        }
-
-        private void AddParsedCompanies(string jsonString)
-        {
+            var jsonString = await _contentProvider.GetContentAsync(++_currentPageNumber, _entityFilter);
             if (!string.IsNullOrEmpty(jsonString))
             {
-                var companies = ParseContent(jsonString);
+                var companies = GetParsedContent(jsonString);
                 foreach (var company in companies)
                 {
                     Companies.Add(company);
@@ -68,7 +60,7 @@ namespace LegalEntityListApp.ViewModels
             }
         }
 
-        private IEnumerable<LegalEntityViewModel> ParseContent(string jsonContent)
+        private IEnumerable<LegalEntityViewModel> GetParsedContent(string jsonContent)
         {
             var companies = JsonConvert.DeserializeObject<List<LegalEntityViewModel>>(jsonContent);
             return companies.Where(x => x.Location.Latitude != null && x.Location.Longitude != null);

@@ -18,11 +18,6 @@
             AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
             Margin="0" Padding="0"
             Spacing="0">
-            <!--<Grid.RowDefinitions>
-                <RowDefinition Height="45"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>-->
             <Grid
                 Margin="20, 0"
                 Padding="0, 20, 0, 0"

@@ -5,12 +5,13 @@ namespace LegalEntityListApp.Views
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage(MainPageViewModel viewModel)
+        private readonly MainPageViewModel _viewModel;
+
+        public MainPage()
         {
             InitializeComponent();
-
-            viewModel.Navigation = Navigation;
-            BindingContext = viewModel;
+            _viewModel = new MainPageViewModel { Navigation = this.Navigation };
+            BindingContext = _viewModel;
         }
     }
 }

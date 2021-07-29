@@ -5,13 +5,11 @@ namespace LegalEntityListApp.DataWorkers
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class FilterAttribute : Attribute
     {
-        public string ParameterName { get; }
-        public FilterType FilterType { get; }
+        public string Parameter { get; }
 
-        public FilterAttribute(string parameterName, FilterType filterType)
+        public FilterAttribute(string parameter)
         {
-            ParameterName = parameterName;
-            FilterType = filterType;
+            Parameter = parameter;
         }
     }
 }

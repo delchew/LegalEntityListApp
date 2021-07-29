@@ -11,13 +11,13 @@ namespace LegalEntityListApp.ViewModels
     public class FiltersPopupViewModel : INotifyPropertyChanged
     {
         private readonly EntityFilter _entityFilter;
-        private Action<EntityFilter> _filteredSearchAction;
+        private Action _filteredSearchAction;
 
         public ICommand ApplyFilterCommand { get; private set; }
 
-        public FiltersPopupViewModel(Action<EntityFilter> filteredSearchAction)
+        public FiltersPopupViewModel(Action filteredSearchAction, EntityFilter entityFilter)
         {
-            _entityFilter = new EntityFilter();
+            _entityFilter = entityFilter;
             ApplyFilterCommand = new Command(ApplyFilter);
             _filteredSearchAction = filteredSearchAction;
         }
@@ -111,7 +111,7 @@ namespace LegalEntityListApp.ViewModels
         private async void ApplyFilter()
         {
             await PopupNavigation.Instance.PopAsync();
-            _filteredSearchAction?.Invoke(_entityFilter);
+            _filteredSearchAction?.Invoke();
         }
     }
 }

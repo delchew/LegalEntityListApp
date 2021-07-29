@@ -1,27 +1,31 @@
-﻿using System.Reflection;
-using System.Text;
-using LegalEntityListApp.Extensions;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Reflection;
 using LegalEntityListApp.Models;
 
 namespace LegalEntityListApp.DataWorkers
 {
     public class SimpleFilterRequestBuilder : IRequestStringBuilder
     {
-        private const int _minRequestStringLength = 120;
-        private readonly StringBuilder _requestStringBuilder = new StringBuilder(_minRequestStringLength);
+        private readonly IDictionary<string, string> _queryParamsDictionary;
+        private readonly string _baseRequestString = @"https://beta.marketing-logic.ru/mlead/api/v0/legals";
+        private readonly string _accessTokenString  = @"zCdJIdkcU5rGTG0lsngcrDGfsmEAV4Kz";
+        private readonly PropertyInfo[] _filterProps = typeof(EntityFilter).GetProperties();
 
-        public string BaseRequestString { get; set; } = @"https://beta.marketing-logic.ru/mlead/api/v0/legals";
-        public string AccessTokenString { get; set; } = @"zCdJIdkcU5rGTG0lsngcrDGfsmEAV4Kz";
+        public SimpleFilterRequestBuilder()
+        {
+            _queryParamsDictionary = new Dictionary<string, string>
+            {
+                { "access-token", _accessTokenString }
+            };
+        }
 
         public string GetRequestString(int pageNumber = 1, EntityFilter filter = null)
         {
-            _requestStringBuilder.Clear().Append(BaseRequestString).Append("?");
-            _requestStringBuilder.Append("access-token=").Append(AccessTokenString);
-            _requestStringBuilder.Append("&page=").Append(pageNumber);
+            _queryParamsDictionary["page"] = pageNumber.ToString();
             if (filter != null)
             {
-                var properties = filter.GetType().GetProperties();
-                foreach (var prop in properties)
+                foreach (var prop in _filterProps)
                 {
                     var propValue = prop.GetValue(filter);
                     if(propValue != null)
@@ -29,27 +33,14 @@ namespace LegalEntityListApp.DataWorkers
                         var attrs = prop.GetCustomAttributes<FilterAttribute>();
                         foreach (var attr in attrs)
                         {
-                            AddFilterParameter(attr.ParameterName, attr.FilterType.GetDescription(), propValue.ToString());
+                            _queryParamsDictionary[$"filter{attr.Parameter}"] = propValue.ToString();
                         }
                     }
                 }
             }
-            
-            return _requestStringBuilder.ToString();
-        }
-
-        private void AddFilterParameter(string name, string filterType, string value)
-        {
-            
-            if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(filterType) && !string.IsNullOrWhiteSpace(value))
-            {
-                _requestStringBuilder.Append("&filter[")
-                                     .Append(name)
-                                     .Append("][")
-                                     .Append(filterType)
-                                     .Append("]=")
-                                     .Append(value);
-            }
+            var encodedContent = new FormUrlEncodedContent(_queryParamsDictionary);
+            var queryParamsString = encodedContent.ReadAsStringAsync().Result;
+            return $"{_baseRequestString}?{queryParamsString}";
         }
     }
 }
