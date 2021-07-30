@@ -33,6 +33,7 @@
     <None Remove="CustomControls\" />
     <None Remove="Rg.Plugins.Popup" />
     <None Remove="Converter\" />
+    <None Remove="Effects\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -45,6 +46,7 @@
     <Folder Include="DataWorkers\" />
     <Folder Include="CustomControls\" />
     <Folder Include="Converters\" />
+    <Folder Include="Effects\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Roboto-Regular.ttf">

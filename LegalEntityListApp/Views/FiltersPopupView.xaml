@@ -44,7 +44,8 @@
                     Style="{StaticResource entryMain}"
                     Placeholder="ОГРН"
                     Keyboard="Numeric"
-                    Text="{Binding Path=Psrn, Mode=OneWayToSource}"/>
+                    Text="{Binding Path=Psrn, Mode=OneWayToSource}">
+                </local:RoundedEntry>
                 <local:RoundedEntry
                     x:Name="tinFilterEntry"
                     Style="{StaticResource entryMain}"

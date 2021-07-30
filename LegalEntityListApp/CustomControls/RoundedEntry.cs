@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using LegalEntityListApp.Effects;
+using Xamarin.Forms;
 
 namespace LegalEntityListApp.CustomControls
 {
@@ -31,6 +32,11 @@ namespace LegalEntityListApp.CustomControls
         {
             get { return (Color)GetValue(BorderColorProperty); }
             set { SetValue(BorderColorProperty, value); }
+        }
+
+        public RoundedEntry()
+        {
+            Effects.Add(new ClearEntryEffect());
         }
     }
 }
